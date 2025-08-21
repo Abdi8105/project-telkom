@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <memory>
+
+class User {
+public:
+    // Constructor dengan initializer list untuk efisiensi
+    User(const std::string& name) : m_name(name) {}
+
+    // Method 'const' agar tidak mengubah state objek
+    void displayInfo() const {
+        std::cout << "User: " << m_name << std::endl;
+    }
+
+private:
+    std::string m_name;
+};
+
+class UserManager {
+public:
+    void addUser(const std::string& name) {
+        // Menggunakan unique_ptr untuk manajemen memori otomatis
+        m_users.push_back(std::make_unique<User>(name));
+    }
+
+    void listUsers() const {
+        for (const auto& user : m_users) {
+            user->displayInfo();
+        }
+    }
+
+private:
+    // Vektor smart pointers
+    std::vector<std::unique_ptr<User>> m_users;
+};
+
+int main() {
+    UserManager manager;
+    manager.addUser("Alice");
+    manager.addUser("Bob");
+    manager.listUsers();
+
+    return 0;
+}
