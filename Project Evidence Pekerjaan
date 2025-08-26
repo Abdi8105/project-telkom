@@ -199,7 +199,7 @@
         });
         async function headerContent(docx, lokasi) {
             const leftLogo = await fetch("images/telkom-aks.png").then(r => r.blob()).then(b => b.arrayBuffer());
-            const rightLogo = await fetch("images/telkom-indo1.png").then(r => r.blob()).then(b => b.arrayBuffer());
+            const rightLogo = await fetch("images/telkom-indo.png").then(r => r.blob()).then(b => b.arrayBuffer());
             const { Paragraph, TextRun, ImageRun, AlignmentType, TabStopType } = docx;
             return [
                 new Paragraph({
@@ -268,7 +268,7 @@
         }
         document.querySelector("#generateBtn").addEventListener("click", async () => {
             if (!uploadedFiles.length) { alert("Silakan upload minimal 1 foto."); return; }
-            const lokasiInput = prompt("Masukkan alamat lokasi pekerjaan:");
+            const lokasiInput = prompt("Masukkan Lokasi Pekerjaan");
             if (!lokasiInput) { alert("Lokasi wajib diisi."); return; }
             const { Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell, AlignmentType, SectionType } = window.docx;
             const sections = [];
