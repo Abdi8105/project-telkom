@@ -27,6 +27,7 @@
             letter-spacing: 1px;
             background: linear-gradient(90deg, #38bdf8, #a855f7, #ec4899);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .container {
