@@ -198,8 +198,8 @@
             });
         });
         async function headerContent(docx, lokasi) {
-            const leftLogo = await fetch("images/telkom-akses.png").then(r => r.blob()).then(b => b.arrayBuffer());
-            const rightLogo = await fetch("images/telkom-indonesia.png").then(r => r.blob()).then(b => b.arrayBuffer());
+            const leftLogo = await fetch("images/telkom-aks.png").then(r => r.blob()).then(b => b.arrayBuffer());
+            const rightLogo = await fetch("images/telkom-indo1.png").then(r => r.blob()).then(b => b.arrayBuffer());
             const { Paragraph, TextRun, ImageRun, AlignmentType, TabStopType } = docx;
             return [
                 new Paragraph({
@@ -208,9 +208,9 @@
                         {type: TabStopType.RIGHT, position: 9000}
                     ],
                     children: [
-                        new ImageRun({data: leftLogo, transformation: {width: 130, height: 90}}),                      
+                        new ImageRun({data: leftLogo, transformation: {width: 150, height: 50}}),                      
                         new TextRun({text: "\t"}),
-                        new ImageRun({data: rightLogo, transformation: {width: 110, height: 60}})
+                        new ImageRun({data: rightLogo, transformation: {width: 115, height: 70}})
                     ],
                     spacing: {after: 525}
                 }),
@@ -248,8 +248,8 @@
                         new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: buffer, transformation: { width: w, height: h } })] }),
                     ],
                     margins: {
-                        top: 200, // Top margin in dxa (twentieths of a point)
-                        bottom: 200, // Bottom margin in dxa
+                        top: 200, 
+                        bottom: 200, 
                     },
                 });
             }));
